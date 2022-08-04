@@ -1,28 +1,44 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+  <main>
+    <Header />
+
+    <section class="container">
+        <div class="main-visual">
+          메인비주얼
+        </div>
+        
+        <section class="content">
+          <div class="con-icon-banner">
+            <a href="#">
+              <div class="icon"></div>
+              <span>맛난과일</span>
+            </a>
+          </div>
+
+          <div class="con-best">
+            <a href="#">
+              이미지
+            </a>
+          </div>
+        </section>
+    </section>
+
+  </main>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from '@components/Header.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Header : Header,
+  },
 }
 </script>
 
 <style lang="scss">
-@import "@styles/modules.scss";
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import "@styles/modules.scss";
 </style>
