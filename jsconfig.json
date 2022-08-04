@@ -5,9 +5,13 @@
     "baseUrl": "./",
     "moduleResolution": "node",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@node_modules/*": ["./src/node_modules/*"],
+      "@/*": ["./src/*"],
+      "@src/*": ["./src/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@components/*": ["./src/components/*"],
+      "@configs/*": ["./src/configs/*"],
+      "@styles/*": ["./src/styles/*"],
     },
     "lib": [
       "esnext",

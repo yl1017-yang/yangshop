@@ -1,0 +1,70 @@
+// https://github.com/sass/sass/issues/1251
+$fontSrc: "/assets/fonts";
+@at-root {
+    @font-face {
+        font-family:'NotoSans';
+        font-style:normal;
+        font-weight:300;
+        font-display: swap;
+        src:local('NotoSansKR-DemiLight'),
+        url(/assets/fonts/NotoSansKR-DemiLight.woff2) format('woff2'),
+        url(/assets/fonts/NotoSansKR-DemiLight.woff) format('woff');
+    }
+    @font-face {
+        font-family:'NotoSans';
+        font-style:normal;
+        font-weight:400;
+        font-display: swap;
+        src:local('NotoSansKR-DemiLight'),
+        url(/assets/fonts/NotoSansKR-DemiLight.woff2) format('woff2'),
+        url(/assets/fonts/NotoSansKR-DemiLight.woff) format('woff');
+    }
+    @font-face {
+        font-family:'NotoSans';
+        font-style:normal;
+        font-weight:700;
+        font-display: swap;
+        src:local('NotoSansKR-Bold'),
+        url(/assets/fonts/NotoSansKR-Bold.woff2) format('woff2'),
+        url(/assets/fonts/NotoSansKR-Bold.woff) format('woff');
+    }
+    @font-face {
+        font-family:'NotoSans';
+        font-style:normal;
+        font-weight:500;
+        font-display: swap;
+        src:local('NotoSansKR-Medium'),
+        url(/assets/fonts/NotoSansKR-Medium.woff2) format('woff2'),
+        url(/assets/fonts/NotoSansKR-Medium.woff) format('woff');
+    }
+
+    @font-face {
+        font-family:'Lato';
+        font-style:normal;
+        font-weight:300;
+        font-display: swap;
+        src:local('Lato-Regular'),
+        url(/assets/fonts/Lato-Regular.woff2) format('woff2'),
+        url(/assets/fonts/Lato-Regular.woff) format('woff');
+    }
+    
+    @font-face {
+        font-family:'Lato';
+        font-style:normal;
+        font-weight:400;
+        font-display: swap;
+        src:local('Lato-Regular'),
+        url(/assets/fonts/Lato-Regular.woff2) format('woff2'),
+        url(/assets/fonts/Lato-Regular.woff) format('woff');
+    }
+    @font-face {
+        font-family:'Lato';
+        font-style:normal;
+        font-weight:700;
+        font-display: swap;
+        src:local('Lato-Bold'),
+        url(/assets/fonts/Lato-Bold.woff2) format('woff2'),
+        url(/assets/fonts/Lato-Bold.woff) format('woff');
+    }
+
+}
