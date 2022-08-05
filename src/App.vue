@@ -7,6 +7,7 @@
       <div class="inner">
         <div class="main_visual">
           메인비주얼
+          https://yl1017-yang.github.io/yangshop/
         </div>
         
         <section class="content">

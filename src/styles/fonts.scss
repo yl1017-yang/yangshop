@@ -1,5 +1,5 @@
 // https://github.com/sass/sass/issues/1251
-$fontSrc: "/assets/fonts";
+$fontSrc: "/public/assets/fonts";
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 
@@ -10,26 +10,17 @@ $fontSrc: "/assets/fonts";
         font-weight:300;
         font-display: swap;
         src:local('NotoSansKR-DemiLight'),
-        url(/assets/fonts/NotoSansKR-DemiLight.woff2) format('woff2'),
-        url(/assets/fonts/NotoSansKR-DemiLight.woff) format('woff');
+        url(/public/assets/fonts/NotoSansKR-DemiLight.woff2) format('woff2'),
+        url(/public/assets/fonts/NotoSansKR-DemiLight.woff) format('woff');
     }
     @font-face {
         font-family:'NotoSans';
         font-style:normal;
         font-weight:400;
         font-display: swap;
-        src:local('NotoSansKR-DemiLight'),
-        url(/assets/fonts/NotoSansKR-DemiLight.woff2) format('woff2'),
-        url(/assets/fonts/NotoSansKR-DemiLight.woff) format('woff');
-    }
-    @font-face {
-        font-family:'NotoSans';
-        font-style:normal;
-        font-weight:700;
-        font-display: swap;
-        src:local('NotoSansKR-Bold'),
-        url(/assets/fonts/NotoSansKR-Bold.woff2) format('woff2'),
-        url(/assets/fonts/NotoSansKR-Bold.woff) format('woff');
+        src:local('NotoSansKR-Regular'),
+        url(/public/assets/fonts/NotoSansKR-Regular.woff2) format('woff2'),
+        url(/public/assets/fonts/NotoSansKR-Regular.woff) format('woff');
     }
     @font-face {
         font-family:'NotoSans';
@@ -37,8 +28,17 @@ $fontSrc: "/assets/fonts";
         font-weight:500;
         font-display: swap;
         src:local('NotoSansKR-Medium'),
-        url(/assets/fonts/NotoSansKR-Medium.woff2) format('woff2'),
-        url(/assets/fonts/NotoSansKR-Medium.woff) format('woff');
+        url(/public/assets/fonts/NotoSansKR-Medium.woff2) format('woff2'),
+        url(/public/assets/fonts/NotoSansKR-Medium.woff) format('woff');
+    }
+    @font-face {
+        font-family:'NotoSans';
+        font-style:normal;
+        font-weight:700;
+        font-display: swap;
+        src:local('NotoSansKR-Bold'),
+        url(/public/assets/fonts/NotoSansKR-Bold.woff2) format('woff2'),
+        url(/public/assets/fonts/NotoSansKR-Bold.woff) format('woff');
     }
 
 }
