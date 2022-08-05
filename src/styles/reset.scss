@@ -32,29 +32,30 @@ white-space
 $h48 : 48px;
 $h56 : 56px;
 
+
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;vertical-align:baseline;-ms-overflow-style:scrollbar;box-sizing:border-box;-webkit-box-sizing:border-box;}
+// font:inherit;
+
 html,
-body { 
-    font-family: $noto;
+body {
+    font-family: $defaultFont;
+    font-size:100%;font-weight:400;color:$gray-64;line-height:1.5;letter-spacing:-0.0375em;word-wrap:break-word;word-break:keep-all;-webkit-text-size-adjust:none;-ms-text-size-adjust:100%;text-size-adjust:none;
 
     &.scroll-lock {
         overflow: hidden !important;
-    }
-    
+    }    
     &.scroll {
         overflow: auto !important;
     }
 }
 
 a {
-    color: #000;
+    color: $gray-64;
     text-decoration: none;
 }
 
 ul,
 ol {
-    margin: 0;
-    padding: 0;
-
     li {
         list-style-type: none;
     }
@@ -66,26 +67,10 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0;
-    font-size: 14px;
-}
-
-dl,
-dt,
-dd {
-    margin:0;
-    padding:0;
-}
-
-figure,
-p {
-    margin: 0;
+    
 }
 
 fieldset {
-    margin: 0;
-    padding: 0;
-    border: 0;
     min-width: 0;
 }
 
@@ -105,22 +90,6 @@ legend {
 
 table caption {
     display: none;
-}
-
-table th,
-table td {
-    margin: 0;
-    padding: 0;
-}
-
-.cascading select {
-    width: 100px;
-    height: 200px;
-}
-
-form {
-    margin: 0;
-    padding: 0;
 }
 
 button,
@@ -149,94 +118,80 @@ em {
     font-style: normal;
 }
 
-details {
-    summary {
-        position: relative;
-        min-height: auto;
-        list-style: none;
-        cursor: pointer;
+// details {
+//     summary {
+//         position: relative;
+//         min-height: auto;
+//         list-style: none;
+//         cursor: pointer;
     
-        &:after {
-            @extend %icon-drop-down;
+//         &:after {
+//             @extend %icon-drop-down;
     
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-        }
+//             display: block;
+//             position: absolute;
+//             top: 50%;
+//             right: 0;
+//             transform: translateY(-50%);
+//         }
     
-        &:before {
-            display: none;
-        }
+//         &:before {
+//             display: none;
+//         }
 
-        &:focus {
-            @extend %focus-outline;
-        }
+//         &:focus {
+//             @extend %focus-outline;
+//         }
     
-        &::-webkit-details-marker {
-            display: none;
-        }
-    }
+//         &::-webkit-details-marker {
+//             display: none;
+//         }
+//     }
 
-    &[open] {
-        > summary {
-            &:after {
-                background-image: url($icon-drop-down-up-img);
-            }
-        }
-    }
-
-    &[icon="large"] {
-        > summary {
-            @extend %icon-drop-down-large;
-        }
-
-        &[open] {
-            > summary {
-                &:after {
-                    background-image: url($icon-large-drop-down-up-img);
-                }
-            }
-        }
-    }
+//     &[open] {
+//         > summary {
+//             &:after {
+//                 background-image: url($icon-drop-down-up-img);
+//             }
+//         }
+//     }
     
-    &:disabled, &[disabled="disabled"] {
-        &[fixed] {
-            > summary {
-                &::after {
-                    display: none;
-                }
-            }
-        }
+//     &:disabled, &[disabled="disabled"] {
+//         &[fixed] {
+//             > summary {
+//                 &::after {
+//                     display: none;
+//                 }
+//             }
+//         }
 
-        > summary {
-            @extend %icon-drop-down-large;
+//         > summary {
+//             @extend %icon-drop-down-large;
 
-            pointer-events: none;
+//             pointer-events: none;
             
-            &::after {
-                background: url($icon-large-drop-down-img) no-repeat center center;
-            }
-        }
+//             &::after {
+//                 background: url($icon-large-drop-down-img) no-repeat center center;
+//             }
+//         }
 
-        &[icon-hide], &[icon-hide="icon-hide"] {
-            > summary {
-                &::after {
-                    display: none;
-                }
-            }
-        }
+//         &[icon-hide], &[icon-hide="icon-hide"] {
+//             > summary {
+//                 &::after {
+//                     display: none;
+//                 }
+//             }
+//         }
 
-        &[open] {
-            > summary {
-                &:after {
-                    background-image: url($icon-large-drop-down-up-img-disabled);
-                }
-            }
-        }
-    }
-}
+//         &[open] {
+//             > summary {
+//                 &:after {
+//                     background-image: url($icon-large-drop-down-up-img-disabled);
+//                 }
+//             }
+//         }
+//     }
+// }
 
 textarea {
     resize: none;
@@ -250,33 +205,26 @@ mark {
     background: none;
 }
 
-select {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    min-height: 32px;
-    padding: 0 32px 0 12px;
-    font-size: 12px;
-    letter-spacing: -0.4px;
-    border: none;
-    background: url(#{$images}/common/down-line-16.svg) no-repeat right 8px top 50%;
-    // color: $color_basic;
-    font-size: 13px;
+// select {
+//     -webkit-appearance: none;
+//     appearance: none;
+//     width: 100%;
+//     min-height: 32px;
+//     padding: 0 32px 0 12px;
+//     font-size: 12px;
+//     letter-spacing: -0.4px;
+//     border: none;
+//     background: url(#{$images}/common/down-line-16.svg) no-repeat right 8px top 50%;
+//     // color: $color_basic;
+//     font-size: 13px;
 
-    &:disabled {
-        background: url(#{$images}/common/down-line-16-disabled.svg) no-repeat right 8px top 50%;
-        color: $gray-12;
-    }
-}
-/* IE 에서 Select box 화살표 제거 */ 
-select::-ms-expand { display: none; }
-
-span {
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
-    box-sizing: initial;
-}
+//     &:disabled {
+//         background: url(#{$images}/common/down-line-16-disabled.svg) no-repeat right 8px top 50%;
+//         color: $gray-12;
+//     }
+// }
+// /* IE 에서 Select box 화살표 제거 */ 
+// select::-ms-expand { display: none; }
 
 input[type="file"],
 input[type="checkbox"],
@@ -329,17 +277,6 @@ button {
     }
 }
 
-%btnDefault {
-    display: inline-block;
-    width: calc(100% - 4px);
-    border-radius: 8px;
-    margin: 0 4px;
-}
-
-$disabledBg : $gray-16;
-$disabledInput : $gray-4;
-$btnSize: ''; //each 검색용
-$btnColors : ''; //each 검색용
     
 .blind {
     overflow: hidden !important;

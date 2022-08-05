@@ -1,7 +1,7 @@
-const { defineConfig } = require('@vue/cli-service');
 const path = require("path");
+//const webpack = require('webpack');
 
-module.exports = defineConfig({
+module.exports = {
   transpileDependencies: true,
   outputDir:'./docs',
   publicPath:'/yangshop',
@@ -28,4 +28,4 @@ module.exports = defineConfig({
   //   },
   // },
 
-})
+}
