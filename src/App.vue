@@ -3,18 +3,13 @@
   <main>
     <Header />
 
-    <swiper v-bind="swipers" :modules="modules" class="mainVisualSwiper" ref="mySwiper">
-      <swiper-slide v-for="n in 3" :key="n"> {{ n }} </swiper-slide>
-    </swiper>
-    <!-- <div class="swiper-pagination"></div> -->
-
     <section class="container">
+      <swiper v-bind="swipers" :modules="modules" class="mainVisualSwiper" ref="mySwiper">
+        <swiper-slide v-for="n in 3" :key="n"> {{ n }} </swiper-slide>
+      </swiper>
+      <!-- <div class="swiper-pagination"></div> -->
+    
       <div class="inner">
-        <div class="main_visual">
-          메인비주얼
-          https://yl1017-yang.github.io/yangshop/
-        </div>
-        
         <section class="content">
           <div class="con_icon_banner">
             <a href="#">
@@ -126,10 +121,10 @@ export default {
     }
     & .swiper-button-prev {
       border: 1px solid red;
-      left: 10%;
+      
     }
     & .swiper-button-next {
-      border: 1px solid red
+      border: 1px solid red;
     }    
   }
 </style>
