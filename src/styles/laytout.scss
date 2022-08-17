@@ -101,7 +101,32 @@
 
 // 내용
 .container {
-  
+  .content {
+    &_iconBanner {
+      display: flex;
+      justify-content: center;
+      margin: 85px 0 65px;
+
+      a {
+        display: block;
+        width: 100px;
+        text-align: center;
+        font-weight: 400;
+        margin: 0 30px;
+        
+        .icon {
+          width: 100px;
+          height: 100px;
+          border-radius: 100px;
+          background: #eee;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    &_bestItem {
+
+    }
+  }
 }
 
 // 메인비주얼

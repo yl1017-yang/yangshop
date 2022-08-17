@@ -5,20 +5,44 @@
 
     <section class="container">
       <swiper v-bind="swipers" :modules="modules" class="mainVisualSwiper" ref="mySwiper">
-        <swiper-slide v-for="n in 3" :key="n"> {{ n }} </swiper-slide>
+        <swiper-slide v-for="n in 3" :key="n">{{n}}</swiper-slide>
       </swiper>
       <!-- <div class="swiper-pagination"></div> -->
     
       <div class="inner">
         <section class="content">
-          <div class="con_icon_banner">
+          <div class="content_iconBanner">
+            <a href="#">
+              <div class="icon"><img src="" alt=""></div>
+              <span>맛난과일</span>
+            </a>
             <a href="#">
               <div class="icon"></div>
-              <span>맛난과일</span>
+              <span>짱편한 간편식</span>
+            </a>
+            <a href="#">
+              <div class="icon"></div>
+              <span>튼튼 과자/간식</span>
+            </a>
+            <a href="#">
+              <div class="icon"></div>
+              <span>살찌는 빵</span>
+            </a>
+            <a href="#">
+              <div class="icon"></div>
+              <span>우유/유제품</span>
+            </a>
+            <a href="#">
+              <div class="icon"></div>
+              <span>고기짱</span>
+            </a>
+            <a href="#">
+              <div class="icon"></div>
+              <span>맛없는 샐러드</span>
             </a>
           </div>
 
-          <div class="con_best">
+          <div class="content_bestItem">
             <a href="#">
               이미지
             </a>
@@ -87,7 +111,6 @@ export default {
   .mainVisualSwiper {
     height: 540px;
     width: 100%;
-    background: #444;
   
     .swiper-slide {
       display: flex;
@@ -106,25 +129,32 @@ export default {
     }
 
     & .swiper-pagination {
-      width: 1200px;
+      width: 200px;
       left: 50%;
-      transform: translateX(-50%);
+      margin-left: -655px;
       bottom: 55px;
       font-size: 14px;
       color: $black;
-      text-align: left;
     }
 
     & .swiper-button-next, .swiper-button-prev {
       top: auto;
-      bottom : 55px;
+      bottom : 51px;
+      color: $black;
+      height:30px;
+      z-index: 20;
+    }
+    & .swiper-button-next:after, .swiper-button-prev:after {
+      font-size: 14px;
+      font-weight: 700;
     }
     & .swiper-button-prev {
-      border: 1px solid red;
-      
+      left: 50%;
+      margin-left: -600px;
     }
     & .swiper-button-next {
-      border: 1px solid red;
+      left: 50%;
+      margin-left: -540px;
     }    
   }
 </style>
