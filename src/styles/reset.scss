@@ -102,15 +102,21 @@ button,
     cursor: pointer;
 }
 
-input, select {
-    font-family: inherit;
-    font-size: inherit;
-}
 
-.input {
+input,
+textarea,
+select {
+    box-sizing: border-box;
     -webkit-appearance: none;
     -moz-appearance: none;
     -o-appearance: none;
+    appearance: none;
+    border: none;
+    outline-style: none;
+    border-radius: 0;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
 }
     
 input::-ms-check{
@@ -252,6 +258,11 @@ button {
 :-moz-placeholder {color: $gray-60;}
 ::-moz-placeholder {color: $gray-60;}
 ::-webkit-input-placeholder {color: $gray-60;}
+
+// input[type='text']:focus::-webkit-input-placeholder{visibility:hidden}
+// input[type='text']:focus:-moz-placeholder{visibility:hidden}
+// input[type='text']:focus::-moz-placeholder{visibility:hidden}
+// input[type='text']:focus:-ms-input-placeholder{visibility:hidden}
 
 %btnMargin {
     display: inline-block;

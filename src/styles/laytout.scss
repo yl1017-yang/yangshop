@@ -14,14 +14,20 @@
     align-items: center;
     height: 100px;
 
-    .logo a {
-      color: $black;
-      font-size: 36px;
-      font-weight: 800;
+    .logo {
+      width: 30%;
+
+      a {
+        color: $black;
+        font-size: 36px;
+        font-weight: 800;
+
+        span {
+          font-weight: 600;
+        }
+      }
     }
-    .logo a span { 
-      font-weight: 600;
-    }
+
     .search {
       background-color: #eee;
       border-radius: 100px;
@@ -36,7 +42,8 @@
 
         input {
           width: 80%;
-          border: 0;
+          height: 100%;
+          border: none;
           background: none;
         }
         .btn_search {
@@ -47,18 +54,20 @@
       }
     }
     .util a {
-      padding-left:15px;
+      padding-left:10px;
       font-size: 14px;
       color: $gray-60;
     }
   }
 
   &_gnb {
-    display: flex;
+    position: relative;
     height: 50px;
 
     .category {
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
       padding-left: 34px;
       font-size: 18px;
       color: $gray-80;
@@ -77,11 +86,13 @@
     .nav {
       width: 100%;
       text-align: center;
-    }
-    .nav a {
-      padding:0 30px;
-      font-size: 18px;
-      color: $gray-80;
+
+      a {
+        display: inline-block;
+        padding:0 30px;
+        font-size: 18px;
+        color: $gray-80;
+      }
     }
 
   }
@@ -125,7 +136,7 @@
           transition: all 0.4s;
         }
         &:hover .icon{
-          background: $point;          
+          background: $point;
         }
         &:hover img{
           filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(1000%) contrast(1000%);
@@ -173,8 +184,9 @@
   &_info {
     .info_title {
       display: block;
+      font-size :18px;
       color: $gray-80;
-      margin: 10px 0 8px;
+      margin: 10px 0;
     }
     .info_discount {
       display: inline-block;
@@ -197,3 +209,52 @@
 }
 
 // 메인비주얼
+.mainVisualSwiper {
+  height: 520px;
+  width: 100%;
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:nth-child(1n) {
+      background: url(#{$images}/main/main-visual-01.jpg) top center no-repeat;
+    }
+    &:nth-child(2n) {
+      background: url(#{$images}/main/main-visual-02.jpg) top center no-repeat;
+    }
+    &:nth-child(3n) {
+      background: url(#{$images}/main/main-visual-03.jpg) top center no-repeat;
+    }
+  }
+
+  & .swiper-pagination {
+    width: 200px;
+    left: 50%;
+    margin-left: -655px;
+    bottom: 55px;
+    font-size: 14px;
+    color: $black;
+  }
+
+  & .swiper-button-next, .swiper-button-prev {
+    top: auto;
+    bottom : 51px;
+    color: $black;
+    height:30px;
+    z-index: 20;
+  }
+  & .swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  & .swiper-button-prev {
+    left: 50%;
+    margin-left: -600px;
+  }
+  & .swiper-button-next {
+    left: 50%;
+    margin-left: -540px;
+  }
+}
