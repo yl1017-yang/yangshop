@@ -53,6 +53,10 @@ a {
     text-decoration: none;
 }
 
+em, address {
+    font-style: normal;
+}
+
 ul,
 ol {
     li {
@@ -66,6 +70,7 @@ h3,
 h4,
 h5,
 h6 {}
+
 
 fieldset {
     min-width: 0;
@@ -97,6 +102,11 @@ button,
     cursor: pointer;
 }
 
+input, select {
+    font-family: inherit;
+    font-size: inherit;
+}
+
 .input {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -109,10 +119,6 @@ input::-ms-check{
 
 input::-ms-clear {
     display: none;
-}
-
-em {
-    font-style: normal;
 }
 
 // details {
@@ -212,7 +218,6 @@ mark {
 //     letter-spacing: -0.4px;
 //     border: none;
 //     background: url(#{$images}/common/down-line-16.svg) no-repeat right 8px top 50%;
-//     // color: $color_basic;
 //     font-size: 13px;
 
 //     &:disabled {
@@ -220,8 +225,9 @@ mark {
 //         color: $gray-12;
 //     }
 // }
-// /* IE 에서 Select box 화살표 제거 */ 
-// select::-ms-expand { display: none; }
+
+/* IE 에서 Select box 화살표 제거 */ 
+select::-ms-expand { display: none; }
 
 input[type="file"],
 input[type="checkbox"],
@@ -242,10 +248,10 @@ button {
     }
 }
 
-::placeholder {color: $gray-32;}
-:-moz-placeholder {color: $gray-32;}
-::-moz-placeholder {color: $gray-32;}
-::-webkit-input-placeholder {color: $gray-32;}
+::placeholder {color: $gray-60;}
+:-moz-placeholder {color: $gray-60;}
+::-moz-placeholder {color: $gray-60;}
+::-webkit-input-placeholder {color: $gray-60;}
 
 %btnMargin {
     display: inline-block;

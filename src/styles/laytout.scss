@@ -12,26 +12,96 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100px;
 
-    .logo {
-      color: $gray-80;
+    .logo a {
+      color: $black;
       font-size: 36px;
+      font-weight: 800;
+    }
+    .logo a span { 
+      font-weight: 600;
     }
     .search {
+      background-color: #eee;
+      border-radius: 100px;
       
-    }
-    .util {
+      &_inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 460px;
+        height: 48px;
+        padding: 0 30px;
 
+        input {
+          width: 80%;
+          border: 0;
+          background: none;
+        }
+        .btn_search {
+          width: 28px;
+          height: 28px;
+          background: url(#{$images}/icon/icon-serach-28.svg) no-repeat;
+        }
+      }
+    }
+    .util a {
+      padding-left:15px;
+      font-size: 14px;
+      color: $gray-60;
     }
   }
 
   &_gnb {
+    display: flex;
+    height: 50px;
+
+    .category {
+      position: relative;
+      padding-left: 34px;
+      font-size: 18px;
+      color: $gray-80;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 28px;
+        height: 28px;
+        background: url(#{$images}/icon/icon-cate-28.svg) no-repeat;
+      }
+    }
+
+    .nav {
+      width: 100%;
+      text-align: center;
+    }
+    .nav a {
+      padding:0 30px;
+      font-size: 18px;
+      color: $gray-80;
+    }
 
   }
   
 }
 
+// 하단
+.footer {
+  border-top: 1px solid #eee;
+  margin-top: 50px;
+
+  &_content {
+    margin-top: 40px;
+    text-align: center;
+  }
+}
+
 // 내용
 .container {
-  background: #eee;
+  
 }
+
+// 메인비주얼

@@ -4,7 +4,12 @@
 
       <section class="header_content">
         <h1 class="logo"><a href="#">YANG<span>SHOP</span></a></h1>
-        <div class="search">검색</div>
+        <div class="search">
+          <div class="search_inner">
+            <input type="text" placeholder="양샵에 검색해주셔요" maxlength="30">
+            <button type="button" class="btn_search"><span class="blind">검색</span></button>
+          </div>
+        </div>
         <div class="util">
           <a href="#">로그인</a>
           <a href="#">회원가입</a>
@@ -16,7 +21,7 @@
 
       <section class="header_gnb">
         <div class="category">
-          카테고리
+          전체상품
         </div>
         <nav class="nav">
           <a href="#">새거상품</a>
