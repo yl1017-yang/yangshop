@@ -7,6 +7,7 @@
 // 상단
 .header {
   width: 100%;
+  border-bottom: 1px solid $gray-2;
   
   &_content {
     display: flex;
@@ -111,6 +112,9 @@
 }
 
 // 내용
+.sub_content {
+  margin-top: 50px;
+}
 .container {
   .content {
     &_iconBanner {
@@ -172,7 +176,8 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-  } 
+  }
+
   &_item {
     margin-bottom: 70px;
   }
@@ -181,6 +186,7 @@
     width: 100%;
     height: 100%;
   }
+  
   &_info {
     .info_title {
       display: block;

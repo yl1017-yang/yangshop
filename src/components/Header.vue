@@ -3,7 +3,9 @@
     <div class="inner">
 
       <section class="header_content">
-        <h1 class="logo"><a href="#">YANG<span>SHOP</span></a></h1>
+        <h1 class="logo">
+          <router-link to="/yangshop/">YANG<span>SHOP</span></router-link>
+        </h1>
         <div class="search">
           <div class="search_inner">
             <input type="text" placeholder="양샵에 검색해주셔요" maxlength="30">
@@ -24,8 +26,8 @@
           전체상품
         </div>
         <nav class="nav">
-          <a href="#">새거상품</a>
-          <a href="#">제일 잘나가</a>
+          <router-link to="/yangshop/newProduct">새거상품</router-link>
+          <router-link to="/yangshop/bestProduct">제일 잘나가</router-link>
           <a href="#">기획전/이벤트</a>
           <a href="#">선물하숑</a>
         </nav>
