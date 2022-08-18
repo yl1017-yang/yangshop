@@ -22,11 +22,8 @@ export default {
   title: 'Main',
   components: {
     Header : Header,
-    Footer : Footer,
-    
-  },
-
-  
+    Footer : Footer,    
+  },  
 
 }
 </script>

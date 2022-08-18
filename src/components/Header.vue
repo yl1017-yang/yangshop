@@ -28,8 +28,8 @@
         <nav class="nav">
           <router-link to="/yangshop/newProduct">새거상품</router-link>
           <router-link to="/yangshop/bestProduct">제일 잘나가</router-link>
-          <a href="#">기획전/이벤트</a>
-          <a href="#">선물하숑</a>
+          <router-link to="/yangshop/event">기획전/이벤트</router-link>
+          <router-link to="/yangshop/gift">선물하숑</router-link>
         </nav>
       </section>
 
