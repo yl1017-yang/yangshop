@@ -1,5 +1,4 @@
 <template>
-
   <section class="container">
     <swiper v-bind="swipers" :modules="modules" class="mainVisualSwiper" ref="mySwiper">
       <swiper-slide v-for="n in 3" :key="n">{{n}}https://yl1017-yang.github.io/yangshop/</swiper-slide>
@@ -41,54 +40,54 @@
         <div class="content_bestItem">
           <h2>내가 제일 잘나가!</h2>
           <ul class="product_list">
-            <li class="product_item">
+            <li class="product_item" v-for="objb in 2" :key="objb">
               <a href="#">
                 <figure class="product_img">
-                  <img src="assets/images/main/item-big-01.jpg" alt="">
+                  <img :src="ProductData[7].image" alt="">
                 </figure>
                 <div class="product_info">
                   <span class="info_title">
-                    저탄소 GAP 스테비 복숭아 (2kg)
+                    {{ProductData[7].title}}
                   </span>
                   <span class="info_discount">
                     <span class="blind">할인율</span>
-                    <strong>50</strong>%
+                    <strong>{{ProductData[7].discount}}</strong>%
                   </span>
                   <span class="info_price">
                     <span class="blind">할인가</span>
-                    <strong>5,680</strong>원
+                    <strong>{{ProductData[7].price}}</strong>원
                   </span>
                   <del class="info_del">
                     <span class="blind">정상가</span>
-                    5,680
+                    {{ProductData[7].priceRegular}}
                   </del>
                 </div>
               </a>
             </li>
-            <li class="product_item">
+            <!-- <li class="product_item">
               <a href="#">
                 <figure class="product_img">
-                  <img src="assets/images/main/item-big-02.jpg" alt="">
+                  <img :src="ProductData[7].image" alt="">
                 </figure>
                 <div class="product_info">
                   <span class="info_title">
-                    아삭한 파프리카 샐러드(80g)
+                    {{ProductData[7].title}}
                   </span>
                   <span class="info_discount">
                     <span class="blind">할인율</span>
-                    <strong>85</strong>%
+                    <strong>{{ProductData[7].discount}}</strong>%
                   </span>
                   <span class="info_price">
                     <span class="blind">할인가</span>
-                    <strong>5,680</strong>원
+                    <strong>{{ProductData[7].price}}</strong>원
                   </span>
                   <del class="info_del">
                     <span class="blind">정상가</span>
-                    5,680
+                    {{ProductData[7].priceRegular}}
                   </del>
                 </div>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
 
@@ -99,31 +98,31 @@
         <div class="content_newItem">
           <h2>새거상품</h2>
           <ul class="product_list">
-            <li class="product_item">
+            <li class="product_item" v-for="(a, obj) in ProductData" :key="obj">
               <a href="#">
                 <figure class="product_img">
-                  <img src="assets/images/main/item-01.jpg" alt="">
+                  <img :src="a.image" alt="">
                 </figure>
                 <div class="product_info">
                   <span class="info_title">
-                    워싱톤 생체리(400g내외/10R)
+                    {{a.title}}
                   </span>
                   <span class="info_discount">
                     <span class="blind">할인율</span>
-                    <strong>50</strong>%
+                    <strong>{{a.discount}}</strong>%
                   </span>
                   <span class="info_price">
                     <span class="blind">할인가</span>
-                    <strong>5,680</strong>원
+                    <strong>{{a.price}}</strong>원
                   </span>
                   <del class="info_del">
                     <span class="blind">정상가</span>
-                    5,680
+                    {{a.priceRegular}}
                   </del>
                 </div>
               </a>
             </li>
-            <li class="product_item">
+            <!-- <li class="product_item">
               <a href="#">
                 <figure class="product_img">
                   <img src="assets/images/main/item-02.jpg" alt="">
@@ -242,7 +241,7 @@
                   </del>
                 </div>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
 
@@ -289,8 +288,12 @@ export default {
       },
       modules: [Autoplay, Pagination, Navigation, A11y],
     }
-  }
+  },
 
+  props: {
+    ProductData : Array,
+    //데이터이름 : 자료형이름
+  },
   
 }
 </script>

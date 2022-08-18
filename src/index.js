@@ -1,9 +1,10 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Index from '@pages/Index.vue';
-import NewProduct from '@pages/NewProduct.vue';
-import BestProduct from '@pages/BestProduct.vue';
-import Event from '@pages/Event.vue';
-import Gift from '@pages/Gift.vue';
+import ErrorPage from "@pages/ErrorPage"
+import Index from '@pages/Index.vue'
+import NewProduct from '@pages/NewProduct.vue'
+import BestProduct from '@pages/BestProduct.vue'
+import Event from '@pages/Event.vue'
+import Gift from '@pages/Gift.vue'
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
   {
     path: "/yangshop/gift",
     component: Gift,
+  },
+  {
+    path: "/:catchAll(.*)",
+    component: ErrorPage,
   },
 ];
 
