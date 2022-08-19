@@ -9,32 +9,8 @@
         <div class="content_iconBanner">
           <a href="#" v-for="(icon, index) in iconBanner" :key="index">
             <div class="icon"><img :src="icon.icon" alt=""></div>
-            <span>{{icon.title}}</span>
+            <span>{{ icon.title }}</span>
           </a>
-          <!-- <a href="#">
-            <div class="icon"><img src="assets/images/icon/icon-banner-02.svg" alt=""></div>
-            <span>짱편한 간편식</span>
-          </a>
-          <a href="#">
-            <div class="icon"><img src="assets/images/icon/icon-banner-03.svg" alt=""></div>
-            <span>튼튼 과자/간식</span>
-          </a>
-          <a href="#">
-            <div class="icon"><img src="assets/images/icon/icon-banner-04.svg" alt=""></div>
-            <span>살찌는 빵</span>
-          </a>
-          <a href="#">
-            <div class="icon"><img src="assets/images/icon/icon-banner-05.svg" alt=""></div>
-            <span>우유/유제품</span>
-          </a>
-          <a href="#">
-            <div class="icon"><img src="assets/images/icon/icon-banner-06.svg" alt=""></div>
-            <span>고기짱</span>
-          </a>
-          <a href="#">
-            <div class="icon"><img src="assets/images/icon/icon-banner-07.svg" alt=""></div>
-            <span>맛없는 샐러드</span>
-          </a> -->
         </div>
 
         <div class="content_bestItem">
@@ -51,7 +27,7 @@
                 <span class="tag">
                     0{{index + 1}}
                   </span>
-                <div class="product_info">                  
+                <div class="product_info">
                   <span class="info_title">
                     {{ProductData[objb].title}}
                   </span>
@@ -89,19 +65,19 @@
                 </figure>
                 <div class="product_info">
                   <span class="info_title">
-                    {{item.title}}
+                    {{ item.title }}
                   </span>
                   <span class="info_discount">
                     <span class="blind">할인율</span>
-                    <strong>{{item.discount}}</strong>%
+                    <strong>{{ item.discount }}</strong>%
                   </span>
                   <span class="info_price">
                     <span class="blind">할인가</span>
-                    <strong>{{item.price}}</strong>원
+                    <strong>{{ item.price }}</strong>원
                   </span>
                   <del class="info_del">
                     <span class="blind">정상가</span>
-                    {{item.priceRegular}}
+                    {{ item.priceRegular }}
                   </del>
                 </div>
               </a>
@@ -166,6 +142,13 @@ export default {
     }
   },
 
+  computed: {
+    //vuex 데이터 가져오기
+    ProductData() {
+      return this.$store.state.ProductList;
+    },
+  },
+
   methods: {
     moveDetail(id) {
       console.log("movedetail(id)가 호출되었습니다. 상품 : id 값" + id);
@@ -174,8 +157,8 @@ export default {
   },
 
   props: {
-    ProductData : Array,
-    //데이터이름 : 자료형이름
+    //ProductData : Array,
+    //vuex 사용 - 데이터이름 : 자료형이름
   },
   
 }
