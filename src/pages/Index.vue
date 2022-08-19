@@ -1,17 +1,17 @@
 <template>
   <section class="container">
     <swiper v-bind="swipers" :modules="modules" class="mainVisualSwiper" ref="mySwiper">
-      <swiper-slide v-for="n in 3" :key="n">{{n}}https://yl1017-yang.github.io/yangshop/</swiper-slide>
+      <swiper-slide v-for="swiper in 3" :key="swiper">{{swiper}}https://yl1017-yang.github.io/yangshop/</swiper-slide>
     </swiper>
 
     <div class="inner">
       <section class="content">
         <div class="content_iconBanner">
-          <a href="#">
-            <div class="icon"><img src="assets/images/icon/icon-banner-01.svg" alt=""></div>
-            <span>맛난과일</span>
+          <a href="#" v-for="(icon, index) in iconBanner" :key="index">
+            <div class="icon"><img :src="icon.icon" alt=""></div>
+            <span>{{icon.title}}</span>
           </a>
-          <a href="#">
+          <!-- <a href="#">
             <div class="icon"><img src="assets/images/icon/icon-banner-02.svg" alt=""></div>
             <span>짱편한 간편식</span>
           </a>
@@ -34,214 +34,78 @@
           <a href="#">
             <div class="icon"><img src="assets/images/icon/icon-banner-07.svg" alt=""></div>
             <span>맛없는 샐러드</span>
-          </a>
+          </a> -->
         </div>
 
         <div class="content_bestItem">
-          <h2>내가 제일 잘나가!</h2>
-          <ul class="product_list">
-            <li class="product_item" v-for="objb in 2" :key="objb">
+          <h2>
+            오늘 만 특가
+            <span class="bestItem_timer">14 : 06 : 48</span>
+          </h2>
+          <ul class="product_list typeBest">
+            <li class="product_item" v-for="(objb, index) in 2" :key="index">
               <a href="#">
                 <figure class="product_img">
-                  <img :src="ProductData[7].image" alt="">
+                  <img :src="ProductData[objb].image" alt="">
                 </figure>
-                <div class="product_info">
+                <span class="tag">
+                    0{{index + 1}}
+                  </span>
+                <div class="product_info">                  
                   <span class="info_title">
-                    {{ProductData[7].title}}
+                    {{ProductData[objb].title}}
                   </span>
                   <span class="info_discount">
                     <span class="blind">할인율</span>
-                    <strong>{{ProductData[7].discount}}</strong>%
+                    <strong>{{ProductData[objb].discount}}</strong>%
                   </span>
                   <span class="info_price">
                     <span class="blind">할인가</span>
-                    <strong>{{ProductData[7].price}}</strong>원
+                    <strong>{{ProductData[objb].price}}</strong>원
                   </span>
                   <del class="info_del">
                     <span class="blind">정상가</span>
-                    {{ProductData[7].priceRegular}}
+                    {{ProductData[objb].priceRegular}}
                   </del>
                 </div>
               </a>
             </li>
-            <!-- <li class="product_item">
-              <a href="#">
-                <figure class="product_img">
-                  <img :src="ProductData[7].image" alt="">
-                </figure>
-                <div class="product_info">
-                  <span class="info_title">
-                    {{ProductData[7].title}}
-                  </span>
-                  <span class="info_discount">
-                    <span class="blind">할인율</span>
-                    <strong>{{ProductData[7].discount}}</strong>%
-                  </span>
-                  <span class="info_price">
-                    <span class="blind">할인가</span>
-                    <strong>{{ProductData[7].price}}</strong>원
-                  </span>
-                  <del class="info_del">
-                    <span class="blind">정상가</span>
-                    {{ProductData[7].priceRegular}}
-                  </del>
-                </div>
-              </a>
-            </li> -->
           </ul>
         </div>
 
         <div class="content_longBanner">
-          <img src="assets/images/main/img-longbanner.jpg" alt="">
+          <router-link to="/yangshop/gift"><img src="assets/images/main/img-longbanner.jpg" alt=""></router-link>
         </div>
 
         <div class="content_newItem">
           <h2>새거상품</h2>
-          <ul class="product_list">
-            <li class="product_item" v-for="(a, obj) in ProductData" :key="obj">
+          <span>총 {{ProductData.length}}개</span>
+          <ul class="product_list type3">
+            <!-- https://junyharang.tistory.com/295 -->
+            <li class="product_item" v-for="(item, index) in ProductData" :key="index" @click="moveDetail(item.id)">
               <a href="#">
                 <figure class="product_img">
-                  <img :src="a.image" alt="">
+                  <img :src="item.image" :alt="item.title">
                 </figure>
                 <div class="product_info">
                   <span class="info_title">
-                    {{a.title}}
+                    {{item.title}}
                   </span>
                   <span class="info_discount">
                     <span class="blind">할인율</span>
-                    <strong>{{a.discount}}</strong>%
+                    <strong>{{item.discount}}</strong>%
                   </span>
                   <span class="info_price">
                     <span class="blind">할인가</span>
-                    <strong>{{a.price}}</strong>원
+                    <strong>{{item.price}}</strong>원
                   </span>
                   <del class="info_del">
                     <span class="blind">정상가</span>
-                    {{a.priceRegular}}
+                    {{item.priceRegular}}
                   </del>
                 </div>
               </a>
             </li>
-            <!-- <li class="product_item">
-              <a href="#">
-                <figure class="product_img">
-                  <img src="assets/images/main/item-02.jpg" alt="">
-                </figure>
-                <div class="product_info">
-                  <span class="info_title">
-                    신선한 고당도 네이블 오렌지(8개/1.5kg내외)
-                  </span>
-                  <span class="info_discount">
-                    <span class="blind">할인율</span>
-                    <strong>30</strong>%
-                  </span>
-                  <span class="info_price">
-                    <span class="blind">할인가</span>
-                    <strong>23,000</strong>원
-                  </span>
-                  <del class="info_del">
-                    <span class="blind">정상가</span>
-                    26,000
-                  </del>
-                </div>
-              </a>
-            </li>
-            <li class="product_item">
-              <a href="#">
-                <figure class="product_img">
-                  <img src="assets/images/main/item-03.jpg" alt="">
-                </figure>
-                <div class="product_info">
-                  <span class="info_title">
-                    청송 아오리사과 1.5kg내외
-                  </span>
-                  <span class="info_discount">
-                    <span class="blind">할인율</span>
-                    <strong>21</strong>%
-                  </span>
-                  <span class="info_price">
-                    <span class="blind">할인가</span>
-                    <strong>12,680</strong>원
-                  </span>
-                  <del class="info_del">
-                    <span class="blind">정상가</span>
-                    15,680
-                  </del>
-                </div>
-              </a>
-            </li>
-            <li class="product_item">
-              <a href="#">
-                <figure class="product_img">
-                  <img src="assets/images/main/item-04.jpg" alt="">
-                </figure>
-                <div class="product_info">
-                  <span class="info_title">
-                    워싱톤 생체리(400g내외/10R)
-                  </span>
-                  <span class="info_discount">
-                    <span class="blind">할인율</span>
-                    <strong>50</strong>%
-                  </span>
-                  <span class="info_price">
-                    <span class="blind">할인가</span>
-                    <strong>5,680</strong>원
-                  </span>
-                  <del class="info_del">
-                    <span class="blind">정상가</span>
-                    5,680
-                  </del>
-                </div>
-              </a>
-            </li>
-            <li class="product_item">
-              <a href="#">
-                <figure class="product_img">
-                  <img src="assets/images/main/item-05.jpg" alt="">
-                </figure>
-                <div class="product_info">
-                  <span class="info_title">
-                    고당도 수박6~7kg
-                  </span>
-                  <span class="info_discount">
-                    <span class="blind">할인율</span>
-                    <strong>30</strong>%
-                  </span>
-                  <span class="info_price">
-                    <span class="blind">할인가</span>
-                    <strong>23,000</strong>원
-                  </span>
-                  <del class="info_del">
-                    <span class="blind">정상가</span>
-                    26,000
-                  </del>
-                </div>
-              </a>
-            </li>
-            <li class="product_item">
-              <a href="#">
-                <figure class="product_img">
-                  <img src="assets/images/main/item-06.jpg" alt="">
-                </figure>
-                <div class="product_info">
-                  <span class="info_title">
-                    제스프리 골드키위 15입(2.1kg내외)
-                  </span>
-                  <span class="info_discount">
-                    <span class="blind">할인율</span>
-                    <strong>21</strong>%
-                  </span>
-                  <span class="info_price">
-                    <span class="blind">할인가</span>
-                    <strong>12,680</strong>원
-                  </span>
-                  <del class="info_del">
-                    <span class="blind">정상가</span>
-                    15,680
-                  </del>
-                </div>
-              </a>
-            </li> -->
           </ul>
         </div>
 
@@ -270,6 +134,7 @@ export default {
 
   data() {
     return {
+      //스와이퍼
       swipers: {
         slidesPerView: 1,
         spaceBetween: 0,
@@ -287,6 +152,24 @@ export default {
         },
       },
       modules: [Autoplay, Pagination, Navigation, A11y],
+
+      //아이콘 배너
+      iconBanner : [
+        {icon: "assets/images/icon/icon-banner-01.svg", title: "맛난과일"},
+        {icon: "assets/images/icon/icon-banner-02.svg", title: "짱편한 간편식"},
+        {icon: "assets/images/icon/icon-banner-03.svg", title: "튼튼 과자/간식"},
+        {icon: "assets/images/icon/icon-banner-04.svg", title: "살찌는 빵"},
+        {icon: "assets/images/icon/icon-banner-05.svg", title: "우유/유제품"},
+        {icon: "assets/images/icon/icon-banner-06.svg", title: "고기짱"},
+        {icon: "assets/images/icon/icon-banner-07.svg", title: "맛없는 샐러드"},
+      ]
+    }
+  },
+
+  methods: {
+    moveDetail(id) {
+      console.log("movedetail(id)가 호출되었습니다. 상품 : id 값" + id);
+      this.$router.push('productDetail/${id}');
     }
   },
 

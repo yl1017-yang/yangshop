@@ -3,9 +3,9 @@
   <section class="container">
     <div class="inner">
       <section class="content sub_content">
-        <div class="content_newItem">
+        <div class="content">
           <h2>내가 제일 잘나가</h2>
-          <ul class="product_list">
+          <ul class="product_list type4">
             <li class="product_item">
               <a href="#">
                 <figure class="product_img">
