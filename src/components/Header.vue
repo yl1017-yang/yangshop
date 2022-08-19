@@ -26,10 +26,10 @@
           전체상품
         </div>
         <nav class="nav">
-          <router-link to="/yangshop/newProduct">새거상품</router-link>
-          <router-link to="/yangshop/bestProduct">제일 잘나가</router-link>
-          <router-link to="/yangshop/event">기획전/이벤트</router-link>
-          <router-link to="/yangshop/gift">선물하숑</router-link>
+          <router-link to="/yangshop/NewProduct">새거상품</router-link>
+          <router-link to="/yangshop/BestProduct">제일 잘나가</router-link>
+          <router-link to="/yangshop/Event">기획전/이벤트</router-link>
+          <router-link to="/yangshop/Gift">선물하숑</router-link>
         </nav>
       </section>
 

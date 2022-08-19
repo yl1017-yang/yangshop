@@ -37,11 +37,11 @@
                   </span>
                   <span class="info_price">
                     <span class="blind">할인가</span>
-                    <strong>{{ProductData[objb].price}}</strong>원
+                    <strong>{{ getCurrencyFormat(ProductData[objb].price) }}</strong>원
                   </span>
                   <del class="info_del">
                     <span class="blind">정상가</span>
-                    {{ProductData[objb].priceRegular}}
+                    {{ getCurrencyFormat(ProductData[objb].priceRegular) }}
                   </del>
                 </div>
               </a>
@@ -53,13 +53,13 @@
           <router-link to="/yangshop/gift"><img src="assets/images/main/img-longbanner.jpg" alt=""></router-link>
         </div>
 
+        <!-- https://junyharang.tistory.com/295 -->
         <div class="content_newItem">
           <h2>새거상품</h2>
           <span>총 {{ProductData.length}}개</span>
           <ul class="product_list type3">
-            <!-- https://junyharang.tistory.com/295 -->
-            <li class="product_item" v-for="(item, index) in ProductData" :key="index" @click="moveDetail(item.id)">
-              <a href="#">
+            <li class="product_item" v-for="(item, index) in ProductData" :key="index">
+              <a href="#none" @click="moveDetail(item.id)">
                 <figure class="product_img">
                   <img :src="item.image" :alt="item.title">
                 </figure>
@@ -73,11 +73,11 @@
                   </span>
                   <span class="info_price">
                     <span class="blind">할인가</span>
-                    <strong>{{ item.price }}</strong>원
+                    <strong>{{ getCurrencyFormat(item.price) }}</strong>원
                   </span>
                   <del class="info_del">
                     <span class="blind">정상가</span>
-                    {{ item.priceRegular }}
+                    {{ getCurrencyFormat(item.priceRegular) }}
                   </del>
                 </div>
               </a>
@@ -150,10 +150,14 @@ export default {
   },
 
   methods: {
+    getCurrencyFormat(value) {
+      // 가격의 ,을 새겨주는 $currencyFormat 호출
+      return this.$currencyFormat(value);
+    },
     moveDetail(id) {
       console.log("movedetail(id)가 호출되었습니다. 상품 : id 값" + id);
-      this.$router.push('productDetail/${id}');
-    }
+      this.$router.push('/ProductDetail/${id}');
+    },
   },
 
   props: {

@@ -1,6 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 import ErrorPage from "@pages/ErrorPage"
 import Index from '@pages/Index.vue'
+import ProductDetail from '@pages/ProductDetail.vue'
 import NewProduct from '@pages/NewProduct.vue'
 import BestProduct from '@pages/BestProduct.vue'
 import Event from '@pages/Event.vue'
@@ -12,19 +13,23 @@ const routes = [
     component: Index,
   },
   {
-    path: "/yangshop/newProduct",
+    path: "/yangshop/ProductDetail",
+    component: ProductDetail,
+  },
+  {
+    path: "/yangshop/NewProduct",
     component: NewProduct,
   },
   {
-    path: "/yangshop/bestProduct",
+    path: "/yangshop/BestProduct",
     component: BestProduct,
   },
   {
-    path: "/yangshop/event",
+    path: "/yangshop/Event",
     component: Event,
   },
   {
-    path: "/yangshop/gift",
+    path: "/yangshop/Gift",
     component: Gift,
   },
   {
