@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <swiper v-bind="swipers" :modules="modules" class="mainVisualSwiper" ref="mySwiper">
-      <swiper-slide v-for="swiper in 3" :key="swiper">{{swiper}}https://yl1017-yang.github.io/yangshop/</swiper-slide>
+      <swiper-slide v-for="swiper in 3" :key="swiper">{{ swiper }}https://yl1017-yang.github.io/yangshop/</swiper-slide>
     </swiper>
 
     <div class="inner">
@@ -19,29 +19,29 @@
             <span class="bestItem_timer">14 : 06 : 48</span>
           </h2>
           <ul class="product_list typeBest">
-            <li class="product_item" v-for="(objb, index) in 2" :key="index">
-              <a href="#">
+            <li class="product_item" v-for="(bestItem, index) in 2" :key="index">
+              <a @click="goToDetail(bestItem.id)">
                 <figure class="product_img">
-                  <img :src="ProductData[objb].image" alt="">
+                  <img :src="ProductList[bestItem].image" alt="">
                 </figure>
                 <span class="tag">
                     0{{index + 1}}
                   </span>
                 <div class="product_info">
                   <span class="info_title">
-                    {{ProductData[objb].title}}
+                    {{ ProductList[bestItem].title }}
                   </span>
                   <span class="info_discount">
                     <span class="blind">할인율</span>
-                    <strong>{{ProductData[objb].discount}}</strong>%
+                    <strong>{{ ProductList[bestItem].discount }}</strong>%
                   </span>
                   <span class="info_price">
                     <span class="blind">할인가</span>
-                    <strong>{{ getCurrencyFormat(ProductData[objb].price) }}</strong>원
+                    <strong>{{ getCurrencyFormat(ProductList[bestItem].price) }}</strong>원
                   </span>
                   <del class="info_del">
                     <span class="blind">정상가</span>
-                    {{ getCurrencyFormat(ProductData[objb].priceRegular) }}
+                    {{ getCurrencyFormat(ProductList[bestItem].priceRegular) }}
                   </del>
                 </div>
               </a>
@@ -56,10 +56,15 @@
         <!-- https://junyharang.tistory.com/295 -->
         <div class="content_newItem">
           <h2>새거상품</h2>
-          <span>총 {{ProductData.length}}개</span>
+          <span>총 {{ ProductList.length }}개</span>
+          
+          <div v-if="ProductList == 0">
+            <h5>등록된 상품이 없습니다.</h5>
+          </div>
+
           <ul class="product_list type3">
-            <li class="product_item" v-for="(item, index) in ProductData" :key="index">
-              <a href="#none" @click="moveDetail(item.id)">
+            <li class="product_item" v-for="(item, index) in ProductList" :key="index">
+              <a @click="goToDetail(item.id)">
                 <figure class="product_img">
                   <img :src="item.image" :alt="item.title">
                 </figure>
@@ -144,8 +149,8 @@ export default {
 
   computed: {
     //vuex 데이터 가져오기
-    ProductData() {
-      return this.$store.state.ProductList;
+    ProductList() {
+      return this.$store.state.ProductList; // 상품 정보가 바뀔 때마다 자동으로 ProductList() 갱신
     },
   },
 
@@ -154,9 +159,9 @@ export default {
       // 가격의 ,을 새겨주는 $currencyFormat 호출
       return this.$currencyFormat(value);
     },
-    moveDetail(id) {
-      console.log("movedetail(id)가 호출되었습니다. 상품 : id 값" + id);
-      this.$router.push('/ProductDetail/${id}');
+    goToDetail(id) {
+      console.log("goToDetail(id)가 호출되었습니다. 상품 : id 값" + id);
+      this.$router.push(`/yangshop/ProductDetail/${id}`);
     },
   },
 

@@ -13,7 +13,7 @@ const routes = [
     component: Index,
   },
   {
-    path: "/yangshop/ProductDetail",
+    path: "/yangshop/ProductDetail/:id",
     component: ProductDetail,
   },
   {
