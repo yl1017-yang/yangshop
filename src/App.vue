@@ -2,7 +2,7 @@
 
   <main>
     <Header />
-    <!-- 상품 https://github.com/leeasher/shoppingmall_project/blob/master/client/src/store.js -->
+    
     
     <router-view ></router-view>
     <!-- :작명="데이터이름"  :ProductData="ProductList" vuex 사용하므로 필요없음 -->    

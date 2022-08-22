@@ -4,148 +4,30 @@
     <div class="inner">
       <section class="content sub_content">
         <div class="content">
-          <h2>내가 제일 잘나가</h2>
+          <h2>내가 젤 잘나가</h2>
+          <span>총 {{ ProductList.length }}개</span>
+          
           <ul class="product_list type4">
-            <li class="product_item">
-              <a href="#">
+            <li class="product_item" v-for="(item, index) in ProductList" :key="index">
+              <a @click="goToDetail(item.id)">
                 <figure class="product_img">
-                  <img src="assets/images/main/item-01.jpg" alt="">
+                  <img :src="item.image" :alt="item.title">
                 </figure>
                 <div class="product_info">
                   <span class="info_title">
-                    워싱톤 생체리(400g내외/10R)
+                    {{ item.title }}
                   </span>
                   <span class="info_discount">
                     <span class="blind">할인율</span>
-                    <strong>50</strong>%
+                    <strong>{{ item.discount }}</strong>%
                   </span>
                   <span class="info_price">
                     <span class="blind">할인가</span>
-                    <strong>5,680</strong>원
+                    <strong>{{ getCurrencyFormat(item.price) }}</strong>원
                   </span>
                   <del class="info_del">
                     <span class="blind">정상가</span>
-                    5,680
-                  </del>
-                </div>
-              </a>
-            </li>
-            <li class="product_item">
-              <a href="#">
-                <figure class="product_img">
-                  <img src="assets/images/main/item-02.jpg" alt="">
-                </figure>
-                <div class="product_info">
-                  <span class="info_title">
-                    신선한 고당도 네이블 오렌지(8개/1.5kg내외)
-                  </span>
-                  <span class="info_discount">
-                    <span class="blind">할인율</span>
-                    <strong>30</strong>%
-                  </span>
-                  <span class="info_price">
-                    <span class="blind">할인가</span>
-                    <strong>23,000</strong>원
-                  </span>
-                  <del class="info_del">
-                    <span class="blind">정상가</span>
-                    26,000
-                  </del>
-                </div>
-              </a>
-            </li>
-            <li class="product_item">
-              <a href="#">
-                <figure class="product_img">
-                  <img src="assets/images/main/item-03.jpg" alt="">
-                </figure>
-                <div class="product_info">
-                  <span class="info_title">
-                    청송 아오리사과 1.5kg내외
-                  </span>
-                  <span class="info_discount">
-                    <span class="blind">할인율</span>
-                    <strong>21</strong>%
-                  </span>
-                  <span class="info_price">
-                    <span class="blind">할인가</span>
-                    <strong>12,680</strong>원
-                  </span>
-                  <del class="info_del">
-                    <span class="blind">정상가</span>
-                    15,680
-                  </del>
-                </div>
-              </a>
-            </li>
-            <li class="product_item">
-              <a href="#">
-                <figure class="product_img">
-                  <img src="assets/images/main/item-04.jpg" alt="">
-                </figure>
-                <div class="product_info">
-                  <span class="info_title">
-                    워싱톤 생체리(400g내외/10R)
-                  </span>
-                  <span class="info_discount">
-                    <span class="blind">할인율</span>
-                    <strong>50</strong>%
-                  </span>
-                  <span class="info_price">
-                    <span class="blind">할인가</span>
-                    <strong>5,680</strong>원
-                  </span>
-                  <del class="info_del">
-                    <span class="blind">정상가</span>
-                    5,680
-                  </del>
-                </div>
-              </a>
-            </li>
-            <li class="product_item">
-              <a href="#">
-                <figure class="product_img">
-                  <img src="assets/images/main/item-05.jpg" alt="">
-                </figure>
-                <div class="product_info">
-                  <span class="info_title">
-                    고당도 수박6~7kg
-                  </span>
-                  <span class="info_discount">
-                    <span class="blind">할인율</span>
-                    <strong>30</strong>%
-                  </span>
-                  <span class="info_price">
-                    <span class="blind">할인가</span>
-                    <strong>23,000</strong>원
-                  </span>
-                  <del class="info_del">
-                    <span class="blind">정상가</span>
-                    26,000
-                  </del>
-                </div>
-              </a>
-            </li>
-            <li class="product_item">
-              <a href="#">
-                <figure class="product_img">
-                  <img src="assets/images/main/item-06.jpg" alt="">
-                </figure>
-                <div class="product_info">
-                  <span class="info_title">
-                    제스프리 골드키위 15입(2.1kg내외)
-                  </span>
-                  <span class="info_discount">
-                    <span class="blind">할인율</span>
-                    <strong>21</strong>%
-                  </span>
-                  <span class="info_price">
-                    <span class="blind">할인가</span>
-                    <strong>12,680</strong>원
-                  </span>
-                  <del class="info_del">
-                    <span class="blind">정상가</span>
-                    15,680
+                    {{ getCurrencyFormat(item.priceRegular) }}
                   </del>
                 </div>
               </a>
@@ -163,9 +45,25 @@
 export default {
   name: 'App',
   components: {
-
   },
 
+  computed: {
+    //vuex 데이터 가져오기
+    ProductList() {
+      return this.$store.state.ProductList; // 상품 정보가 바뀔 때마다 자동으로 ProductList() 갱신
+    },
+  },
+
+  methods: {
+    getCurrencyFormat(value) {
+      // 가격의 ,을 새겨주는 $currencyFormat 호출
+      return this.$currencyFormat(value);
+    },
+    goToDetail(id) {
+      console.log("goToDetail(id)가 호출되었습니다. 상품 : id 값" + id);
+      this.$router.push(`/yangshop/ProductDetail=${ id }`);
+    },
+  },
   
 }
 </script>

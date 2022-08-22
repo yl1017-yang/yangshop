@@ -7,13 +7,7 @@ const store = createStore({
       ProductList : ProductData, 
     }
   },
-  data() {
-    return {      
-    }
-  },
-
-  modules: {
-  },
+  
   
 })
 

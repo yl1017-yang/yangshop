@@ -51,6 +51,7 @@ body {
 a {
     color: $gray-64;
     text-decoration: none;
+    cursor: pointer;
 }
 
 em, address {
@@ -100,6 +101,9 @@ button,
     background: none;
     list-style-type: none;
     cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
 }
 
 

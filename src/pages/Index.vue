@@ -17,31 +17,33 @@
           <h2>
             오늘 만 특가
             <span class="bestItem_timer">14 : 06 : 48</span>
+            <span class="special-price__timer" ref="timer"></span>
           </h2>
           <ul class="product_list typeBest">
-            <li class="product_item" v-for="(bestItem, index) in 2" :key="index">
-              <a @click="goToDetail(bestItem.id)">
+              <!-- <li class="product_item" v-for="(item, index) in 2" :key="index"> -->
+                <li class="product_item" v-for="(item, index) in ProductList.slice(0, 2)" :key="index">
+              <a @click="goToDetail(item.id)">
                 <figure class="product_img">
-                  <img :src="ProductList[bestItem].image" alt="">
+                  <img :src="item.image" alt="">
                 </figure>
                 <span class="tag">
                     0{{index + 1}}
                   </span>
                 <div class="product_info">
                   <span class="info_title">
-                    {{ ProductList[bestItem].title }}
+                    {{ item.title }}
                   </span>
                   <span class="info_discount">
                     <span class="blind">할인율</span>
-                    <strong>{{ ProductList[bestItem].discount }}</strong>%
+                    <strong>{{ item.discount }}</strong>%
                   </span>
                   <span class="info_price">
                     <span class="blind">할인가</span>
-                    <strong>{{ getCurrencyFormat(ProductList[bestItem].price) }}</strong>원
+                    <strong>{{ getCurrencyFormat(item.price) }}</strong>원
                   </span>
                   <del class="info_del">
                     <span class="blind">정상가</span>
-                    {{ getCurrencyFormat(ProductList[bestItem].priceRegular) }}
+                    {{ getCurrencyFormat(item.priceRegular) }}
                   </del>
                 </div>
               </a>
@@ -51,19 +53,18 @@
 
         <div class="content_longBanner">
           <router-link to="/yangshop/gift"><img src="assets/images/main/img-longbanner.jpg" alt=""></router-link>
-        </div>
+        </div>        
 
-        <!-- https://junyharang.tistory.com/295 -->
         <div class="content_newItem">
           <h2>새거상품</h2>
-          <span>총 {{ ProductList.length }}개</span>
           
           <div v-if="ProductList == 0">
             <h5>등록된 상품이 없습니다.</h5>
           </div>
 
           <ul class="product_list type3">
-            <li class="product_item" v-for="(item, index) in ProductList" :key="index">
+            <!-- <li class="product_item" v-for="(item) in ProductList" :key="item.id"> -->
+              <li class="product_item" v-for="(item, index) in ProductList" :key="index">
               <a @click="goToDetail(item.id)">
                 <figure class="product_img">
                   <img :src="item.image" :alt="item.title">
@@ -154,6 +155,10 @@ export default {
     },
   },
 
+  mounted () {
+      this.setTimer();
+  },
+
   methods: {
     getCurrencyFormat(value) {
       // 가격의 ,을 새겨주는 $currencyFormat 호출
@@ -161,7 +166,23 @@ export default {
     },
     goToDetail(id) {
       console.log("goToDetail(id)가 호출되었습니다. 상품 : id 값" + id);
-      this.$router.push(`/yangshop/ProductDetail/${id}`);
+      this.$router.push(`/yangshop/ProductDetail=${ id }`);
+    },
+
+    // 타임딜 카운트다운
+    setTimer() {
+      const targetDate = new Date('2099-12-30T00:00:00');
+
+      setInterval(() => {
+          const $timer = this.$refs.timer;
+          if(!$timer) {
+              return;
+          }
+
+          const { hours, minutes, seconds } = this.countDown(targetDate);
+
+          $timer.innerHTML = `${this.timeToTwoDigits(hours)} : ${this.timeToTwoDigits(minutes)} : ${this.timeToTwoDigits(seconds)}`;
+      }, 1000);
     },
   },
 
@@ -174,4 +195,22 @@ export default {
 </script>
 
 <style lang="scss">
+.special-price__timer {
+            display: flex;
+            align-items: center;
+            margin-left: 22px;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 36px;
+            letter-spacing: -0.2px;
+            color:#000;
+            border:1px solid red;
+
+            &:before {
+                content: '';
+                margin-right: 10px;
+                width: 24px;
+                height: 24px;
+            }
+        }
 </style>
