@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <swiper v-bind="swipers" :modules="modules" class="mainVisualSwiper" ref="mySwiper">
-      <swiper-slide v-for="swiper in 3" :key="swiper">{{ swiper }}https://yl1017-yang.github.io/yangshop/</swiper-slide>
+      <swiper-slide v-for="swiper in 3" :key="swiper">{{ swiper }}</swiper-slide>
     </swiper>
 
     <div class="inner">
@@ -14,11 +14,9 @@
         </div>
 
         <div class="content_bestItem">
-          <h2>
-            오늘 만 특가
-            <span class="bestItem_timer">14 : 06 : 48</span>
-            <span class="special-price__timer" ref="timer"></span>
-          </h2>
+
+          <bestItem />
+
           <ul class="product_list typeBest">
               <!-- <li class="product_item" v-for="(item, index) in 2" :key="index"> -->
                 <li class="product_item" v-for="(item, index) in ProductList.slice(0, 2)" :key="index">
@@ -104,6 +102,7 @@ import SwiperCore, { Autoplay, Navigation, Pagination, A11y } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import bestItem from '../components/bestItem.vue';
 
 SwiperCore.use([Autoplay, Navigation, Pagination, A11y]);
 
@@ -112,6 +111,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    bestItem,
   },
 
   data() {
@@ -155,10 +155,6 @@ export default {
     },
   },
 
-  mounted () {
-      this.setTimer();
-  },
-
   methods: {
     getCurrencyFormat(value) {
       // 가격의 ,을 새겨주는 $currencyFormat 호출
@@ -167,22 +163,6 @@ export default {
     goToDetail(id) {
       console.log("goToDetail(id)가 호출되었습니다. 상품 : id 값" + id);
       this.$router.push(`/yangshop/ProductDetail=${ id }`);
-    },
-
-    // 타임딜 카운트다운
-    setTimer() {
-      const targetDate = new Date('2099-12-30T00:00:00');
-
-      setInterval(() => {
-          const $timer = this.$refs.timer;
-          if(!$timer) {
-              return;
-          }
-
-          const { hours, minutes, seconds } = this.countDown(targetDate);
-
-          $timer.innerHTML = `${this.timeToTwoDigits(hours)} : ${this.timeToTwoDigits(minutes)} : ${this.timeToTwoDigits(seconds)}`;
-      }, 1000);
     },
   },
 
@@ -195,22 +175,4 @@ export default {
 </script>
 
 <style lang="scss">
-.special-price__timer {
-            display: flex;
-            align-items: center;
-            margin-left: 22px;
-            font-size: 28px;
-            font-weight: bold;
-            line-height: 36px;
-            letter-spacing: -0.2px;
-            color:#000;
-            border:1px solid red;
-
-            &:before {
-                content: '';
-                margin-right: 10px;
-                width: 24px;
-                height: 24px;
-            }
-        }
 </style>
