@@ -41,17 +41,18 @@
 
             <div class="detail_info_quantity">
               <div class="info_quantity_wrap">
-                <button type="button" tabindex="0" class="info_quantity_btn_minus">-<span class="blind">빼기</span></button>
-                <span class="info_quantity_number">1</span>
-                <button type="button" tabindex="0" class="info_quantity_btn_plus">+<span class="blind">추가</span></button>
+                <button type="button" tabindex="0" class="info_quantity_btn_minus" @click="calculatePrice(-1)">-<span class="blind">빼기</span></button>
+                <!-- <span class="info_quantity_number">1</span> -->
+                <input type="text" class="info_quantity_number" v-model="total" />
+                <button type="button" tabindex="0" class="info_quantity_btn_plus" @click="calculatePrice(1)">+<span class="blind">추가</span></button>
               </div>
-              <span class="info_quantity_price"><em>8,950</em>원</span>
+              <span class="info_quantity_price"><em>{{ getCurrencyFormat(ProductDetail[$route.params.id].price) }}</em>원</span>
             </div>
 
             <div class="detail_info_summary">
               <dl>
                 <dt>주문금액</dt>
-                <dd><em>8,950</em>원</dd>
+                <dd><em>{{ getCurrencyFormat(totalPrice) }}</em>원</dd>
               </dl>
             </div>
           
@@ -83,18 +84,34 @@ export default {
   components: {
   },
 
-  // props : {
-  //   ProductDetail : Array,
-  // },
+  props : {
+    //ProductDetail : Array,
+    id: Number,
+  },
 
   data() {
      return {
+      total: 1,
+      totalPrice: 0,
      }
   },
+  created() {
+    
+  },
+  
   methods: {
     getCurrencyFormat(value) {
       // 가격의 ,을 새겨주는 $currencyFormat 호출
-      return this.$currencyFormat(value);
+      return this.$currencyFormat(value);      
+    },  
+
+    //구매수량
+    calculatePrice(cnt) {
+      let total = this.total + cnt; // cnt를 받아 수량(total)을 나타냄 (total 초기값 = 0)
+      if (total < 0) total = 0; // total이 0보다 작을 땐 total은 무조건 0
+      this.total = total;
+      this.totalPrice = this.ProductDetail.price * this.total; // totalPrice는 제품 가격 * 수량
+      console.log(this.$store.state.price);
     },
   },
 

@@ -51,6 +51,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  //base: '/yangshop/',
 });
 
 export default router; 
