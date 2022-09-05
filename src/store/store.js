@@ -1,4 +1,4 @@
-import { createStore } from 'vuex'
+import { createStore, } from 'vuex';
 import ProductData from './product.js';
 import EventData from './event.js';
 
@@ -9,7 +9,7 @@ const store = createStore({
       EventList : EventData,
     }
   },
-  
+  getters: {},
   
 })
 
