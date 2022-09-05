@@ -5,7 +5,8 @@
       <section class="content sub_content">
         <div class="content">
           <h2>내가 젤 잘나가</h2>
-          <span>총 {{ ProductList.length }}개</span>
+          <!-- <span>총 {{ ProductList.length }}개</span> -->
+          <span>총 {{ cnt }} / {{ totalCount }}개</span>
           
           <ul class="product_list type4">
             <template v-for="(item, index) in ProductList" :key="index">
@@ -50,13 +51,23 @@
 <script>
 export default {
   name: 'App',
-  components: {
+  data() {
+    return {
+      cnt: 0,
+    }
   },
 
   computed: {
     //vuex 데이터 가져오기
     ProductList() {
       return this.$store.state.ProductList; // 상품 정보가 바뀔 때마다 자동으로 ProductList() 갱신
+    },
+    totalCount() {
+      if(this.cnt == 0) {
+        return 1;
+      } else {
+        return Math.ceil(this.cnt/10);
+      }
     },
   },
 

@@ -6,12 +6,12 @@
         <h1 class="logo">
           <router-link to="/yangshop/">YANG<span>SHOP</span></router-link>
         </h1>
-        <div class="search">
-          <div class="search_inner">
-            <input type="text" placeholder="양샵에 검색해주셔요" maxlength="30">
-            <button type="button" class="btn_search"><span class="blind">검색</span></button>
-          </div>
-        </div>
+
+        <Search 
+          :keyword="searchWord" 
+        >
+        </Search>
+
         <div class="util">
           <a href="#">로그인</a>
           <a href="#">회원가입</a>
@@ -38,10 +38,21 @@
 </template>
 
 <script>
+import Search from '@components/Search.vue';
+
 export default {
   name: 'App',
+  components: {
+    Search,
+},
+  props: {
+    searchWord : {
+      type: String,
+      default : null
+    },
+  }
 }
 </script>
 
-<style>
+<style lang="scss">
 </style>

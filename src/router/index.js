@@ -10,7 +10,7 @@ import Gift from '@pages/Gift.vue'
 
 const routes = [
   {
-    path: "/yangshop/",
+    path: "/yangshop",
     name : Index,
     component: Index,
   },
