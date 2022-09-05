@@ -18,14 +18,14 @@
           <bestItem />
 
           <ul class="product_list typeBest">
-              <!-- <li class="product_item" v-for="(item, index) in 2" :key="index"> -->
-                <li class="product_item" v-for="(item, index) in ProductList.slice(0, 2)" :key="index">
+            <!-- <li class="product_item" v-for="(item, index) in 2" :key="index"> -->
+            <li class="product_item" v-for="(item, index) in ProductList.slice(0, 2)" :key="index">
               <a @click="goToDetail(item.id)">
                 <figure class="product_img">
                   <img :src="item.image" alt="">
                 </figure>
                 <span class="tag">
-                    0{{index + 1}}
+                    0{{ index + 1 }}
                   </span>
                 <div class="product_info">
                   <span class="info_title">
@@ -62,7 +62,7 @@
 
           <ul class="product_list type3">
             <!-- <li class="product_item" v-for="(item) in ProductList" :key="item.id"> -->
-              <li class="product_item" v-for="(item, index) in ProductList" :key="index">
+            <li class="product_item" v-for="(item, index) in  ProductList.slice(0, 9)" :key="index">
               <a @click="goToDetail(item.id)">
                 <figure class="product_img">
                   <img :src="item.image" :alt="item.title">

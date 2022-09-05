@@ -5,6 +5,7 @@ import ProductDetail from '@pages/ProductDetail.vue'
 import NewProduct from '@pages/NewProduct.vue'
 import BestProduct from '@pages/BestProduct.vue'
 import Event from '@pages/Event.vue'
+import EventDetail from '@pages/EventDetail.vue'
 import Gift from '@pages/Gift.vue'
 
 const routes = [
@@ -36,6 +37,11 @@ const routes = [
     path: "/yangshop/Event",
     name : Event,
     component: Event,
+  },
+  {
+    path: "/yangshop/EventDetail=:id(\\d+)",
+    name : EventDetail,
+    component: EventDetail,
   },
   {
     path: "/yangshop/Gift",

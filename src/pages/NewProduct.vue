@@ -8,30 +8,32 @@
           <span>총 {{ ProductList.length }}개</span>
           
           <ul class="product_list type4">
-            <li class="product_item" v-for="(item, index) in ProductList" :key="index">
-              <a @click="goToDetail(item.id)">
-                <figure class="product_img">
-                  <img :src="item.image" :alt="item.title">
-                </figure>
-                <div class="product_info">
-                  <span class="info_title">
-                    {{ item.title }}
-                  </span>
-                  <span class="info_discount">
-                    <span class="blind">할인율</span>
-                    <strong>{{ item.discount }}</strong>%
-                  </span>
-                  <span class="info_price">
-                    <span class="blind">할인가</span>
-                    <strong>{{ getCurrencyFormat(item.price) }}</strong>원
-                  </span>
-                  <del class="info_del">
-                    <span class="blind">정상가</span>
-                    {{ getCurrencyFormat(item.priceRegular) }}
-                  </del>
-                </div>
-              </a>
-            </li>
+            <template v-for="(item, index) in ProductList" :key="index">
+              <li class="product_item" v-if="item.state == '신상품'">
+                <a @click="goToDetail(item.id)">
+                  <figure class="product_img">
+                    <img :src="item.image" :alt="item.title">
+                  </figure>
+                  <div class="product_info">
+                    <span class="info_title">
+                      {{ item.title }}
+                    </span>
+                    <span class="info_discount">
+                      <span class="blind">할인율</span>
+                      <strong>{{ item.discount }}</strong>%
+                    </span>
+                    <span class="info_price">
+                      <span class="blind">할인가</span>
+                      <strong>{{ getCurrencyFormat(item.price) }}</strong>원
+                    </span>
+                    <del class="info_del">
+                      <span class="blind">정상가</span>
+                      {{ getCurrencyFormat(item.priceRegular) }}
+                    </del>
+                  </div>
+                </a>
+              </li>
+            </template>
           </ul>
         </div>
 
