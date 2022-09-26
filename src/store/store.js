@@ -9,7 +9,16 @@ const store = createStore({
       EventList : EventData,
     }
   },
-  getters: {},
+  getters: { 
+    // 검색 결과
+    getFilteredProduct:(state) => (keyword) => {
+        const filtered = state.products.filter((object) => 
+          object.title.toLowerCase().includes(keyword.toLowerCase()) || 
+          object.description.toLowerCase().includes(keyword.toLowerCase()
+        ));
+        if (filtered) return filtered;
+    },
+  },
   
 })
 

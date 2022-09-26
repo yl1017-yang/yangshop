@@ -7,6 +7,8 @@ import BestProduct from '@pages/BestProduct.vue'
 import Event from '@pages/Event.vue'
 import EventDetail from '@pages/EventDetail.vue'
 import Gift from '@pages/Gift.vue'
+import SearchPage from '@pages/SearchPage.vue'
+import SearchResult from '@pages/SearchResult.vue'
 
 const routes = [
   {
@@ -51,6 +53,16 @@ const routes = [
   {
     path: "/:anything(.*)",
     component: ErrorPage,
+  },
+  {
+    path: "/yangshop/SearchPage",
+    name : SearchPage,
+    component: SearchPage,
+  },
+  {
+    path: "/yangshop/SearchResult",
+    name : SearchResult,
+    component: SearchResult,
   },
 ];
 

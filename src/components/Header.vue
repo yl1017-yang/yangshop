@@ -7,10 +7,9 @@
           <router-link to="/yangshop/">YANG<span>SHOP</span></router-link>
         </h1>
 
-        <Search 
-          :keyword="searchWord" 
-        >
-        </Search>
+        <!-- 검색 컴포넌트 -->
+        <!-- <Search :keyword="keyword" :value="keyword"></Search> -->
+        <search-form v-bind:value="keyword"></search-form>
 
         <div class="util">
           <a href="#">로그인</a>
@@ -43,14 +42,15 @@ import Search from '@components/Search.vue';
 export default {
   name: 'App',
   components: {
-    Search,
-},
-  props: {
-    searchWord : {
-      type: String,
-      default : null
-    },
-  }
+    'search-form': Search,
+  },
+  template: '#search-form',
+  props: ['value'],
+  data() {
+    return {
+      keyword: this.value,
+    }
+  },
 }
 </script>
 
