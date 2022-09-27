@@ -38,5 +38,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "@styles/modules.scss";
+  // @import "@styles/modules.scss";
 </style>
