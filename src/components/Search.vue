@@ -15,10 +15,10 @@
       <form v-on:submit.prevent="onSubmit">
         <label for="keyword" class="blind">검색</label>
         <input
-            type="text"
-            placeholder="양샵에 입력해주세요"
-            v-model="keyword"
-            @keyup.enter="searchresultshow(keyword)"
+          type="text"
+          placeholder="양샵에 입력해주세요"
+          v-model="keyword"
+          @keyup.enter="searchresultshow(keyword)"
         >
         <button
           type="submit"

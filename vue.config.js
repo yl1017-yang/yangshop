@@ -22,7 +22,7 @@ module.exports = {
 
   // css: {
   //   loaderOptions: {
-  //     scss: {		
+  //     scss: {
 	// 	    additionalData: ` @import "@styles/modules.scss"; `,
   //     },
   //   },
