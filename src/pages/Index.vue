@@ -144,9 +144,15 @@ export default {
         {icon: "assets/images/icon/icon-banner-05.svg", title: "우유/유제품"},
         {icon: "assets/images/icon/icon-banner-06.svg", title: "고기짱"},
         {icon: "assets/images/icon/icon-banner-07.svg", title: "맛없는 샐러드"},
-      ]
+      ],
     }
   },
+  // created () {
+  //   this.$http.get('/api/products')
+  //   .then((response) => {
+  //     this.ProductList = response.data
+  //   })
+  // },
 
   computed: {
     //vuex 데이터 가져오기
