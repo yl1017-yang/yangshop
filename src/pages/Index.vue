@@ -147,12 +147,6 @@ export default {
       ],
     }
   },
-  // created () {
-  //   this.$http.get('/api/products')
-  //   .then((response) => {
-  //     this.ProductList = response.data
-  //   })
-  // },
 
   computed: {
     //vuex 데이터 가져오기

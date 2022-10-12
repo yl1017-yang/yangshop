@@ -5,7 +5,8 @@ module.exports = defineConfig({
   transpileDependencies: true,
   publicPath:'/yangshop',  // webpack의 output.publicPath 대신 사용
   //outputDir:'./docs',  // webpack의 output.path 대신 사용
-  outputDir: '../backend/public',
+  //outputDir: '../backend/public',
+  outputDir : path.resolve(__dirname, '../backend/public'),
   devServer: { 
     proxy: { 
       '/api': { 

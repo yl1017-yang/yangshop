@@ -12,6 +12,10 @@ import SearchResult from '@pages/SearchResult.vue'
 
 const routes = [
   {
+    path: "/",
+    redirect: "/yangshop/",
+  },
+  {
     path: "/yangshop",
     name : Index,
     component: Index,
@@ -67,9 +71,9 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(), // history는 localhost뒤에 /#/을 삭제해주는 역할
   routes,
-  //base: '/yangshop/',
+  // base: '/yangshop/',
 });
 
 export default router; 
